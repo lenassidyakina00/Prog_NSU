@@ -1,0 +1,113 @@
+#include <stdio.h>
+#include<math.h>
+#include<stdbool.h>
+int main() 
+
+{
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    
+    double x1, x2;                               //переменные
+    double a, b, c, D;                              //коэффициенты
+    scanf("%lf %lf %lf", &a, &b, &c);
+    D = (b*b) - (4*a*c);                        
+    if ((a<=100)&&(a>=-100)&&(b<=100)&&(b>=-100)&&(c<=100)&&(c>=-100)) {  //условие на модули
+        if (a == 0 && b!=0 && c!=0) {      //bx + c = 0
+            x1 = (-c/b);
+            printf("1\n");
+            printf("%.5lf ", x1);
+        }
+        if (a!=0 && b!=0 && c!=0) {                //a*x^2 + b*x + c = 0
+            if (D < 0) {
+                printf ("NO");
+            }
+            if (D == 0) {
+                x1 = (-b)/(2*a);
+                printf("1\n");
+                printf("%.5lf ", x1);
+            }
+            if (D > 0) {
+                x1 = (((-b) + sqrt(D))/(2*a));
+                x2 = (((-b) - sqrt(D))/(2*a));
+                if (x1>x2) {
+                    printf ("2\n");
+                    printf("%.5lf ", x2);
+                    printf ("%.5lf ", x1);
+                }
+                else {
+                    printf ("2\n");
+                    printf("%.5lf ", x1);
+                    printf ("%.5lf ", x2);
+                }
+            } 
+        }    
+        if (a==0 && b==0 && c ==0) {             // 0 + 0 + 0 
+            printf("MANY");
+        }
+        if (a==0 && b==0 && c!=0) {               // 0 = 0
+            printf("ERROR");
+        }
+        if (a!=0 && b==0 && c!=0) {           //a*x^2 + c = 0
+            if (D < 0) {
+                printf ("NO");
+            }
+            if (D == 0) {
+                x1 = (-b)/(2*a);
+                printf("1\n");
+                printf("%.5lf ", x1);
+            }
+            if (D > 0) {
+                x1 = (((-b) + sqrt(D))/(2*a));
+                x2 = (((-b) - sqrt(D))/(2*a));
+                if (x1>x2) {
+                    printf ("2\n");
+                    printf("%.5lf ", x2);
+                    printf ("%.5lf ", x1);
+                }
+                else {
+                    printf ("2\n");
+                    printf("%.5lf ", x1);
+                    printf ("%.5lf ", x2);
+                }
+            }
+        }
+        if (a!=0 && b!=0 && c==0) {             //ax^2 + bx = 0
+            if (D < 0) {
+                printf ("NO");
+            }
+            if (D == 0) {
+                x1 = (-b)/(2*a);
+                printf("1\n");
+                printf("%.5lf ", x1);
+            }
+            if (D > 0) {
+                x1 = (((-b) + sqrt(D))/(2*a));
+                x2 = (((-b) - sqrt(D))/(2*a));
+                if (x1>x2) {
+                    printf ("2\n");
+                    printf("%.5lf ", x2);
+                    printf ("%.5lf ", x1);
+                }
+                else {
+                    printf ("2\n");
+                    printf("%.5lf ", x1);
+                    printf ("%.5lf ", x2);
+                }
+            }
+        }
+        if (a!=0 && b==0 && c==0) {              //ax^2 = 0
+            x1 == 0;
+            printf ("1\n");
+            printf ("%.5lf ", x1);
+        }
+        if (a==0 && b!=0 && c==0) {              //bx = 0
+            x1 == 0;
+            printf ("1\n");
+            printf ("%.5lf ", x1);
+        }
+    }
+    else 
+        return false;
+    
+    return 0;
+}
